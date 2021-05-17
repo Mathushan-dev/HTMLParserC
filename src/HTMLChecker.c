@@ -2,68 +2,64 @@
 #include <stdio.h>
 #include <string.h>
 
-int currentFileIndex;
+#include "HTMLChecker.h"
+
 int tagIndex;
 
-int getCoreTag(int textIndex, char *text, char *tag){
+int getCoreTag(int *currentFileIndex, char *text, char *tag){
+    int textIndex = *currentFileIndex;
     tagIndex = 0;
-
-    if (text[textIndex] == '\0'){
+    
+    if (findTagStart(&tagIndex, &textIndex, tag, text) == -1){
         return -1;
     }
 
-    while (text[textIndex] != '<'){
-        if (text[textIndex] == '\0'){
-            return -1;
-        }
-        textIndex++;
+    addIncrementTag(&tagIndex, &textIndex, tag, text);
+
+    if (addCore(&tagIndex, &textIndex, tag, text) == -1){
+        return -1;
     }
 
-    tag[tagIndex] = text[textIndex];
-    tagIndex++;
-    textIndex++;
-
-    while (text[textIndex] != ' ') {
-        if (text[textIndex] == '\0') {
-            return -1;
-        }
-
-        if (text[textIndex] == '>') {
-            tag[tagIndex] = text[textIndex];
-            tagIndex++;
-            textIndex++;
-            tag[tagIndex] = '\0';
-            currentFileIndex = textIndex;
-            return 1;
-        }
-
-        tag[tagIndex] = text[textIndex];
-        tagIndex++;
-        textIndex++;
-    }
-
-   
-    //tag[tagIndex] = text[textIndex];
-    //tagIndex++;
-    textIndex++;
-
-    while (text[textIndex] != '>'){
-        if (text[textIndex] == '\0') {
-            return -1;
-        }
-
-        textIndex++;
-    }
-
-    tag[tagIndex] = text[textIndex];
-    tagIndex++;
-    textIndex++;
+    addIncrementTag(&tagIndex, &textIndex, tag, text);
 
     tag[tagIndex] = '\0';
-    currentFileIndex = textIndex;
+    *currentFileIndex = textIndex;
     return 1;
 }
 
-int getCurrentFileIndex(){
-    return currentFileIndex;
+void addIncrementTag(int *tagIndex, int *textIndex, char *tag, char *text){
+    tag[*tagIndex] = text[*textIndex];
+    (*tagIndex)++;
+    (*textIndex)++;
+}
+
+int findTagStart(int *tagIndex, int *textIndex, char *tag, char *text){
+    while (text[*textIndex] != '<'){
+        if (text[*textIndex] == '\0'){
+            return -1;
+        }
+        (*textIndex)++;
+    }
+    return 0;
+}
+
+int addCore(int *tagIndex, int *textIndex, char *tag, char *text){
+    int isCore = 1;
+    while (text[*textIndex] != '>') {
+        if (text[*textIndex] == '\0') {
+            return -1;
+        }
+
+        if (text[*textIndex] == ' '){
+            isCore = 0;
+        }
+
+        if (isCore == 1){
+            tag[*tagIndex] = text[*textIndex];
+            (*tagIndex)++;
+        }
+
+        (*textIndex)++;
+    }
+    return 0;
 }
