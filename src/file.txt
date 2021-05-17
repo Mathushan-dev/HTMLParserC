@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>List Viewer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<h2><marquee>Welcome to the List Viewer App</marquee></h2>
+<h3>Main Menu:</h3>
+
+<nav>
+  <ul>
+    <li>
+      <form method="POST" action="/runViewAllItemList.html">
+        <input type="hidden" name="viewAction" value="edit"/>
+        <input type="submit" value="View/Edit a list"/>
+      </form>
+    </li>
+
+    <li>
+      <form action="NewItemList.html">
+        <input type="submit" value="Create a list"/>
+      </form>
+    </li>
+
+    <li>
+      <form method="POST" action="/runViewAllItemList.html">
+        <input type="hidden" name="viewAction" value="rename"/>
+        <input type="submit" value="Rename a list"/>
+      </form>
+    </li>
+
+    <li>
+      <form method="POST" action="/runViewAllItemList.html">
+        <input type="hidden" name="viewAction" value="remove"/>
+        <input type="submit" value="Remove a list"/>
+      </form>
+    </li>
+
+    <li>
+      <form action="SearchItemListAll.html">
+        <input type="submit" value="Search"/>
+      </form>
+    </li>
+  </ul>
+
+</nav>
+
+</body>
+
+</html>
