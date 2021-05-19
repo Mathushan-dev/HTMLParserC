@@ -9,7 +9,6 @@ int push(char stack[MAXIMUM_NO_TAGS][MAX_LEN_TAG], int *top, char tag[MAX_LEN_TA
     else{
         *top = *top + 1;
         strcpy(stack[*top], tag);
-        //printf("%s", tag);
         return(1);
     }
 }
@@ -21,6 +20,16 @@ int pop(char stack[MAXIMUM_NO_TAGS][MAX_LEN_TAG], int *top, char tag[MAX_LEN_TAG
     else{
         strcpy(tag, stack[*top]);
         *top = *top - 1;
+        return(1);
+    }
+}
+
+int peek(char stack[MAXIMUM_NO_TAGS][MAX_LEN_TAG], int *top, char tag[MAX_LEN_TAG]){
+    if(*top == -1) {
+        return (-1);
+    }
+    else{
+        strcpy(tag, stack[*top]);
         return(1);
     }
 }

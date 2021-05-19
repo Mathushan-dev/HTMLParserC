@@ -1,55 +1,27 @@
-<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example Document</title>
+  </head>
+  <body>
+  <title>
+  </title>
+<p>
+This is some text using these characters, < and >.
+</p>
 
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>List Viewer</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-<h2><marquee>Welcome to the List Viewer App</marquee></h2>
-<h3>Main Menu:</h3>
-
-<nav>
-  <ul>
-    <li>
-      <form method="POST" action="/runViewAllItemList.html">
-        <input type="hidden" name="viewAction" value="edit"/>
-        <input type="submit" value="View/Edit a list"/>
-      </form>
-    </li>
-
-    <li>
-      <form action="NewItemList.html">
-        <input type="submit" value="Create a list"/>
-      </form>
-    </li>
-
-    <li>
-      <form method="POST" action="/runViewAllItemList.html">
-        <input type="hidden" name="viewAction" value="rename"/>
-        <input type="submit" value="Rename a list"/>
-      </form>
-    </li>
-
-    <li>
-      <form method="POST" action="/runViewAllItemList.html">
-        <input type="hidden" name="viewAction" value="remove"/>
-        <input type="submit" value="Remove a list"/>
-      </form>
-    </li>
-
-    <li>
-      <form action="SearchItemListAll.html">
-        <input type="submit" value="Search"/>
-      </form>
-    </li>
-  </ul>
-
-</nav>
-
-</body>
-
+    <h1>A Title</h1>
+    <div class="content">
+<p>A paragraph with words and sentences.</p>
+<br>
+<h2>A SubTitle</h2>
+<p>More text and a link: <a href="”www.cs.ucl.ac.uk">UCL CS</a></p> <hr>
+      <ul>
+        <li><p>List item 1</p></li>
+        <li><p>List item 2</p></li>
+      </ul>
+      <div class="footer">
+       <p>This is the footer text.</p>
+      </div>
+    </div>
+  </body>
 </html>
