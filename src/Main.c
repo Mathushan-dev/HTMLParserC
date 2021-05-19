@@ -3,6 +3,7 @@
 
 #include "FileHandling.h"
 #include "HTMLChecker.h"
+#include "HTMLExtractor.h"
 
 
 char *htmlContent = NULL;
