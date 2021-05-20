@@ -1,14 +1,9 @@
+
 <html>
   <head>
     <title>Example Document</title>
   </head>
   <body>
-  <title>
-  </title>
-<p>
-This is some text using these characters, < and >.
-</p>
-
     <h1>A Title</h1>
     <div class="content">
 <p>A paragraph with words and sentences.</p>

@@ -1,6 +1,6 @@
 #include "Stack.h"
 
-int inPlace(char stack[MAXIMUM_NO_TAGS][MAX_LEN_TAG], int *top, char tag[MAX_LEN_TAG]);
+int inPlace(char tag[MAX_LEN_TAG]);
 
 int followsHTMLTag(char tag[MAX_LEN_TAG]);
 
