@@ -10,7 +10,8 @@ size_t size = 0;
 char* loadFile(){
     fPtr = fopen(filePath, "r");
     if (fPtr == NULL){
-        return("FILE-ERROR");
+        printf("FILE-ERROR");
+        exit(0);
     }
     else {
         fseek(fPtr, 0, SEEK_END);

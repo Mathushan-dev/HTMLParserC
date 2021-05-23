@@ -33,8 +33,7 @@ int main(){
     }
 
     printf("No parse errors\n");
-
-    // TODO NEED TO FREE CORE TAG MEMORY
-    
+    free(htmlContent);
+    free(coreTag);
     return 0;
 }
