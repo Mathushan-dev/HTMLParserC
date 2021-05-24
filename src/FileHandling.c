@@ -3,7 +3,7 @@
 #include <string.h>
 
 FILE *fPtr;
-char filePath[]="file.txt";
+char filePath[]="file.html";
 char *fileContents = NULL;
 size_t size = 0;
 
